@@ -1,38 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
 .App {
+  text-align: center;
+  font-family: 'Alegreya', serif;
+}
+
+.registerCont{
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.registerChild {
+  margin-top: 35px;
+  border: 5px solid;
+  border-image: linear-gradient(to right, #000000, #ffffff, #000000) 1;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #ffffff;
+  margin: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+.Logo{
+  height: 64px;
+  background-color: #f1f1ef;
+  text-align: center;
+}
+
+.Logo h1{
+  font-weight: 900;
+  padding: 16px ;
+}
+
+
+
+.registerChild form{
+  margin:19px;
+}
+
+@media (max-width: 768px) {
+  .buyOnlineCont {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .registerCont {
+    margin-top: 20px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.loginCont{
+  margin-top: 100px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.loginChild{
+  width: 310px;
+  border: 5px solid;
+  border-image: linear-gradient(to right, #ffbf00, #ff0080) 1;
+  border-radius: 10px;
+  padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-form {
+  max-width: 300px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.ant-col-rtl .login-form-forgot {
+  float: left;
+}
+
+.login-form-button {
+  width: 100%;
+  font-weight: 600;
+}
+
+.ant-menu-title-content{  
+  font-size: 15px;
+}
+
+.center{
+  justify-content: center;
+  text-align: center;
+}
+
+/* ======================================= */
+
+/* Header */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Alegreya', serif;
+  
+}
+
+.navbarCont{
+  display: flex;
+  background-color: antiquewhite;
+  height: 100px;
+  
+}
+
+.navbar{
+  background-color: #e3e3e3;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navbar ul{
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.list{
+  display: flex;
+  width: 400px;
+  list-style: none;
+  justify-content: space-around;
+  margin-left: 5px;
+  align-items: center;
+}
+
+
+.list a {
+  display: flex;
+  justify-content: space-around;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+
+.list a:hover {
+  transform: scale(1.2);
+  color: #333;
+  background-color: #fff9f9;
+  text-decoration:dotted;
+}
+
+
+ /* Admin page */
+
+.adminHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.adminHeader h1{
+  font-size: 1.9rem;
+  text-shadow: 1px 1px rebeccapurple;
+}
+
+.logoutBtn{
+  text-align-last: right;
+
+}
+
+/* Admin's Tables */
+
+.table-container{
+  align-items: center;
+  text-align: center;
+}
+
+.ant-table-thead tr{
+  background-color: #f6f6f8;
+  align-items: center;
+  text-align: center;
+}
+
+
+.ant-table-wrapper .ant-table-thead >tr>th{
+  text-align: center;;
+  background-color: #e3e3e3;
+  width: 800px;
+}
+.ant-table-cell{
+  background-color: #f6f6f8;
 }
