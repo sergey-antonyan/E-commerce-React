@@ -1,7 +1,6 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../Components/Navbar";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useState } from "react";
 
@@ -85,7 +84,6 @@ const Login = () => {
 
   return (
     <div>
-      <Navbar />
       <div className="registerCont">
         <div className="registerChild">
           <Form

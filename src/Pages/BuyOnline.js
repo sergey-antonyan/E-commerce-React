@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import '../Pages/buyOnline.css'
 import { Button, Checkbox, Form, Input } from "antd";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../Components/Navbar";
 import Register from "./Register";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -79,7 +78,6 @@ const BuyOnline = () => {
 
   return (
     <div>
-      <Navbar />
       <div className="buyOnlineCont">
         
         <div>

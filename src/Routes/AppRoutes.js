@@ -15,11 +15,13 @@ import BuyOnline from "../Pages/BuyOnline";
 import Product from "../Pages/Products/Product";
 import ProductById from "../Pages/Products/ProductById"
 import HomePage from "../Pages/HomePage/HomePage";
+import Navbar from "../Components/Navbar";
 
 function AppRoutes() {
   return (
     <>
       <Router>
+      <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
