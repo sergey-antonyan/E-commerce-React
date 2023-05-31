@@ -38,8 +38,14 @@ const Users = () => {
             {title : "Email",
              dataIndex: "Email"
             },
+            {title : "Role",
+             dataIndex: "role"
+            },
             {title : "Is verified",
              dataIndex: "is_verified"
+            },
+            {title : "Created Date",
+             dataIndex: "createdAt"
             },
           ]}
           dataSource={users.map(user => ({ ...user, key: user.id }))}

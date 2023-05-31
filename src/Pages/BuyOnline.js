@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import '../Pages/buyOnline.css'
 import { Button, Checkbox, Form, Input } from "antd";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Register from "./Register";
+import ReCAPTCHA from "react-google-recaptcha";
+
+const reCAPTCHA = process.env.reCAPTCHA;
 
 const formItemLayout = {
   labelCol: {
@@ -41,6 +43,12 @@ const BuyOnline = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const token = localStorage.getItem("jwt");
+  const [isCaptchaSuccessful, setIsCaptchaSuccess] = useState(false)
+
+  function onChange(value) {
+    setIsCaptchaSuccess(true)
+    console.log("captcha value: ", value);
+  }
 
   async function submitLogin(value) {
     console.log(value);
@@ -125,7 +133,8 @@ const BuyOnline = () => {
                   </Form.Item>
                 </Form.Item>
                 <Form.Item {...tailFormItemLayout}>
-                  <Button  htmlType="submit">
+                <ReCAPTCHA style={{marginLeft : "25px", marginBottom: "10px"}} sitekey="6LfNi08mAAAAADTgBoQjGlIDzYo7KVr7gTDF7DFD" onChange={onChange} />
+                  <Button disabled={!isCaptchaSuccessful} htmlType="submit">
                     Login
                   </Button>
                 </Form.Item>

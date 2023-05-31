@@ -1,43 +1,54 @@
-import React from "react";
-import { Component } from "react";
+import React, { useState } from "react";
 import './navbarStyles.css';
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
+import {GrLogout} from "react-icons/gr";
+import {FaRegUser} from "react-icons/fa";
 
-export default class Navbar extends Component {
-   
-  state= { clicked : false}
+export default function Navbar() {
 
-  handleClick = () => {
-    this.setState({clicked: !this.state.clicked})
+  const navigate = useNavigate()
+  function logOut(){
+    localStorage.removeItem("jwt")
+    localStorage.removeItem("userName")
+    navigate("/")
   }
+  const userName = localStorage.getItem('userName');
 
-  render() {
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    setClicked(!clicked);
+  }
+  
   return (
     <div>
       <nav>
         <div className="logoCont">
-        <Link to="/"><span></span>
-         <img className="logo"  src="/image/salogo.png"/>
-        </Link>
+          <Link to="/">
+            <span></span>
+            <img className="logo" src="/image/salogo.png" alt="Logo" />
+          </Link>
         </div>
         <div>
-           <ul id="navbar" className={this.state.clicked ? "#navbar active" : "#navbar"}>
-              <li><Link className="active" to="/">Home</Link></li>
-              <li><a href='#'>About</a></li>
-              <li><a href="#">Shop</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><Link to="/buyonline">Buy Online</Link></li>
-           </ul>
+          <ul id="navbar" className={clicked ? "#navbar active" : "#navbar"}>
+            <li><Link className="active" to="/">Home</Link></li>
+            <li><a href='#'>About</a></li>
+            <li><Link to="/products">Shop</Link></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><Link to="/buyonline">Buy Online</Link></li>
+          </ul>
         </div>
-          <div id="mobile" onClick={this.handleClick}>
-            <i id="bar" className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
-          </div>
-          <div>
-
-          </div>
+        <div id="mobile" onClick={handleClick}>
+          <i id="bar" className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
+        </div>
+        <div>
+        <span style={{width: '40px'}}><FaRegUser/></span>
+          <h3 style={{fontSize: "1.2rem", marginRight: "10px",marginTop: "4px", textShadow: "1px 1px gray", cursor: "pointer" }}>{userName}</h3>
+            <Link onClick={logOut}><GrLogout/></Link>
+        </div>
       </nav>
     </div>
   );
 }
-}
+
