@@ -20,13 +20,21 @@ const Product = () => {
 
   return (
     <div>
-      <h1>Helllllllllllo</h1>
+    <h1 className="pageTitle">ELECTROLYSIS MACHINES</h1>
+    <div className="productCont">
       {data.map((product) => (
-        <Link key={product.id} to={`/products/${product.id}`}>
-          <div>{product.product_name}</div>
-        </Link>
+        <div  className="productDiv" key={product.id}>
+          <Link to={`/products/${product.id}`}  className="productLink">
+          <img className="prodImage" src={`http://localhost:5000/${product?.image}`} alt="photo"/>
+          {/*  */}
+            <div className="productName">{product.product_name}</div>
+            <br/>
+            <h3 className="productPrice">{product.price} RUB</h3>
+            </Link>
+          {/* </Link> */}
+        </div>
       ))}
-      
+    </div>
     </div>
   );
 };

@@ -90,7 +90,7 @@ const AddCategory = () => {
     >
       <h1>Add Category</h1>
     <Form.Item
-        name="name"
+        name="category_name"
         label="Category Name"
         tooltip="What is category name?"
         rules={[

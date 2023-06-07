@@ -43,7 +43,7 @@ const BuyOnline = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("jwt");
   const [isCaptchaSuccessful, setIsCaptchaSuccess] = useState(false)
-
+  const [error, setError] = useState(null)
   function onChange(value) {
     setIsCaptchaSuccess(true)
     console.log("captcha value: ", value);
@@ -59,11 +59,14 @@ const BuyOnline = () => {
         Authorization: token,
       },
     });
-
+    if (response.status === 401) {
+      const errorData = await response.json();
+      setError(errorData.error); 
+    } else{
     const data = await response.json();
     localStorage.setItem("jwt", data.jwt);
     localStorage.setItem("userName", data.userName);
-
+  
     if (data.status === "Logged in" && data.role === 1) {
       console.log(123);
       navigate("/admin");
@@ -74,7 +77,7 @@ const BuyOnline = () => {
     ) {
       navigate("/");
     }
-  }
+  }}
 
   return (
     <div>
@@ -98,6 +101,7 @@ const BuyOnline = () => {
                 scrollToFirstError
               >
                 <h1>Login</h1>
+                {error && <p style={{color: "red"}}>{error}</p>}
                 <Form.Item
                   name="Email"
                   label="E-mail"

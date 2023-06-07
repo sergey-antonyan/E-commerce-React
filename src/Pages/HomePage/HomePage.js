@@ -5,31 +5,42 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchProducts, getAllProducts } from "../../feauters/productsSlice";
 import { Link } from "react-router-dom";
-import './HomePage.css' 
+import Category from "../Category/Category";
+
+import "./HomePage.css";
 
 const HomePage = () => {
-
-  const data = useSelector(getAllProducts)
-  const dispatch = useDispatch()
-  const {id} = useParams();
-
+  const data = useSelector(getAllProducts);
+  const dispatch = useDispatch();
+  const { id } = useParams();
+console.log(data, "nEWWWWWWWWWWWWWWDATA")
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
 
-  const products = data.find((el) => el.id === Number(id))
+  const products = data.find((el) => el.id === Number(id));
 
   return (
     <div>
       <HeaderSlider />
       <div>
-        <h1>ELECTROLYSIS MACHINES</h1>
+        <h1 className="pageTitle">ELECTROLYSIS MACHINES</h1>
         <div className="productCont">
-        {data.map((product) => (
-        <Link key={product.id} to={`/products/${product.id}`}>
-          <div className="productDiv">{product.product_name}</div>
-        </Link>
-      ))}
+          {data.map((product) => (
+            <div  className="productDiv" key={product.id}>
+              <Link to={`/products/${product.id}`}  className="productLink">
+              <img className="prodImage" src={`http://localhost:5000/${product?.image}`} alt="image"/>
+              {/*  */}
+                <div className="productName">{product.product_name}</div>
+                <br/>
+                <h3 className="productPrice">{product.price} RUB</h3>
+                </Link>
+              {/* </Link> */}
+            </div>
+          ))}
+        </div>
+        <div>
+          <Category />
         </div>
       </div>
     </div>

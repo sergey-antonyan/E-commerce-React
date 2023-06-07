@@ -179,7 +179,7 @@ const ProductList = () => {
               if(editRow === record.key){
                return (
                <Form.Item 
-               name="img"
+               name="image"
                rules = {[{
                 required: true,
                 message: "Please enter img",

@@ -1,0 +1,80 @@
+.footerCont {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  background-color: #f9f9f9;
+  padding: 30px;
+}
+
+.newBtn {
+  position: absolute;
+  cursor: pointer;
+  border: none;
+  background-color: #f9f9f9;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.newBtn:hover {
+  color: blue;
+  transform: scale(1.5);
+}
+
+.footerCont h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.footerCont h5,
+.footerCont h6 {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #777;
+}
+
+.footerCont h6 {
+  font-weight: 400;
+}
+
+.icon-instagram,
+.icon-facebook {
+  font-size: 30px;
+  margin: 30px;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.icon-instagram:hover,
+.icon-facebook:hover {
+  color: #007bff;
+}
+
+.companyDiv {
+  width: 350px;
+  padding-left: 50px;
+}
+
+.companyDiv h6 {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .footerCont {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .newBtn {
+    position: static;
+    margin-bottom: 10px;
+  }
+
+  .companyDiv {
+    width: auto;
+    padding-left: 0;
+  }
+}

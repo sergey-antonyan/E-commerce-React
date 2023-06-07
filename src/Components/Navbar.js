@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import './navbarStyles.css';
 import { Link , useNavigate } from "react-router-dom";
 import {GrLogout} from "react-icons/gr";
-import {FaRegUser} from "react-icons/fa";
+import {FaRegUser , FaOpencart} from "react-icons/fa";
+
 
 export default function Navbar() {
 
@@ -47,6 +48,7 @@ export default function Navbar() {
           <h3 style={{fontSize: "1.2rem", marginRight: "10px",marginTop: "4px", textShadow: "1px 1px gray", cursor: "pointer" }}>{userName}</h3>
             <Link onClick={logOut}><GrLogout/></Link>
         </div>
+        <div className="cartIcon"><Link to="/cart"><FaOpencart/></Link></div>
       </nav>
     </div>
   );

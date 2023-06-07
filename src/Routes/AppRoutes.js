@@ -16,6 +16,8 @@ import Product from "../Pages/Products/Product";
 import ProductById from "../Pages/Products/ProductById"
 import HomePage from "../Pages/HomePage/HomePage";
 import Navbar from "../Components/Navbar";
+import Footer from "../Pages/Footer/Footer"
+import Cart from "../Pages/Cart";
 
 function AppRoutes() {
   return (
@@ -25,9 +27,10 @@ function AppRoutes() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/buyonline" element={<BuyOnline />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/products" element={<Product />} />
+          <Route path="/category/:id" element={<Product />} />
           <Route path="/products/:id" element={<ProductById />} />
           <Route
             path="/admin"
@@ -45,6 +48,7 @@ function AppRoutes() {
             <Route path="category" element={<AddCategory />} />
           </Route>
         </Routes>
+        <Footer/>
       </Router>
     </>
   );

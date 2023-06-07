@@ -17,12 +17,55 @@
   }
 }
 
+.pageTitle {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
 .productDiv {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: blueviolet;
+  background-color: white;
   width: 380px;
-  height: 50px;
+  height: 300px;
   margin: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.productDiv:hover {
+  transform: translateY(-5px);
+}
+
+.prodImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.productName {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.productPrice {
+  font-size: 18px;
+  color: #888;
+}
+
+.productLink {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }

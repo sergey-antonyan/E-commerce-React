@@ -11,6 +11,8 @@ const ProductList = () => {
       try {
         const response = await fetch('http://localhost:5000/category');
         const data = await response.json();
+
+        console.log(data,)
         setUsers(data);
       } catch (error) {
         console.error(error);
