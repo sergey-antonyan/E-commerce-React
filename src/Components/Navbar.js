@@ -20,6 +20,8 @@ export default function Navbar() {
   const handleClick = () => {
     setClicked(!clicked);
   }
+
+  
   
   return (
     <div>
@@ -33,7 +35,7 @@ export default function Navbar() {
         <div>
           <ul id="navbar" className={clicked ? "#navbar active" : "#navbar"}>
             <li><Link className="active" to="/">Home</Link></li>
-            <li><a href='#'>About</a></li>
+            <li><Link to='/about'>About</Link></li>
             <li><Link to="/products">Shop</Link></li>
             <li><a href="#">Blog</a></li>
             <li><a href="#">Contact</a></li>

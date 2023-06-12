@@ -36,7 +36,7 @@ const productSlice = createSlice({
       })
       .addCase(fetchByPorductId.fulfilled, (state, action)=>{
         state.status = 'success';
-        state.products = [action.payload]
+         state.products = [action.payload]
     })
   }
   

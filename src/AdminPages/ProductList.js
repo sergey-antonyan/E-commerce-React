@@ -219,12 +219,12 @@ const ProductList = () => {
              }
             },
             {title : "Category",
-             dataIndex: "categoryId",
+             dataIndex: ["Category", "category_name"],
              render:(text, record)=>{
               if(editRow === record.key){
                return (
                <Form.Item 
-               name="categoryId"
+               name={["Category", "category_name"]}
                rules = {[{
                 required: true,
                 message: "Please enter category",

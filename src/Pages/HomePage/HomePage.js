@@ -30,12 +30,12 @@ console.log(data, "nEWWWWWWWWWWWWWWDATA")
             <div  className="productDiv" key={product.id}>
               <Link to={`/products/${product.id}`}  className="productLink">
               <img className="prodImage" src={`http://localhost:5000/${product?.image}`} alt="image"/>
-              {/*  */}
+              
                 <div className="productName">{product.product_name}</div>
                 <br/>
                 <h3 className="productPrice">{product.price} RUB</h3>
                 </Link>
-              {/* </Link> */}
+              
             </div>
           ))}
         </div>
