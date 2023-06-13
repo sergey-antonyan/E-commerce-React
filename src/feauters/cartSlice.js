@@ -2,7 +2,15 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const createCart = createAsyncThunk(
   'cart/createCart',
-  async ({ productId, userId }) => {
+  async ({ productId, userId }, { getState }) => {
+    const { cart } = getState().cart;
+    
+    // Check if prod already exists in the cart
+    const existingCartItem = cart.find(item => item.productId === productId);
+    if (existingCartItem) {
+      throw new Error('Product already exists in the cart.');
+    }
+
     const res = await fetch('http://localhost:5000/cart', {
       method: 'POST',
       body: JSON.stringify({
@@ -19,16 +27,34 @@ export const createCart = createAsyncThunk(
   }
 );
 
+
 export const getCart = createAsyncThunk("cart/getCart", async (userId) => {
   const res = await fetch(`http://localhost:5000/cart/${userId}`);
   const json = await res.json();
-  return json;
+  const cartItemsWithProductInfo = await Promise.all(
+    json.map(async (cartItem) => {
+      const productRes = await fetch(`http://localhost:5000/products/${cartItem.productId}`);
+      const productJson = await productRes.json();
+      return {
+        ...cartItem,
+        product: productJson
+      };
+    })
+  );
+  return cartItemsWithProductInfo;
 });
+
+
+// export const getCart = createAsyncThunk("cart/getCart", async (userId) => {
+//   const res = await fetch(`http://localhost:5000/cart/${userId}`);
+//   const json = await res.json();
+//   return json;
+// });
 
 export const deleteCartProduct = createAsyncThunk(
   "cart/deleteCartProducts",
-  async (id) => {
-    const res = await fetch(`http://localhost:5000/cart/${id}`, {
+  async ({userId , productId}) => {
+    const res = await fetch(`http://localhost:5000/cart/${userId}/${productId}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json; charset=UTF-8"
