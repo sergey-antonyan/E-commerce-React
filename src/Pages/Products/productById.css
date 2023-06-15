@@ -44,6 +44,31 @@
   margin: 30px 0 30px 0;
 }
 
+.quantityBtn {
+  width: 25px;
+  height: 25px;
+  margin: 0 10px 10px 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #337ab7;
+  color: #fff;
+  font-size: 16px;
+}
+
+.quantityBtn.btn2{
+  margin-left: 10px;
+}
+
+.quantityPrint {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #f44336;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
 
 
 

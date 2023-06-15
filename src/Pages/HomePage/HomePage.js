@@ -19,7 +19,7 @@ console.log(data, "nEWWWWWWWWWWWWWWDATA")
   }, []);
 
   const products = data.find((el) => el.id === Number(id));
-
+  
   return (
     <div>
       <HeaderSlider />

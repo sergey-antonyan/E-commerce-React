@@ -66,7 +66,7 @@ const Product = () => {
         )}
         <h2>{product?.price}Rub</h2>
         <div style={{ display: "flex" }}>
-          <button
+          <button className="quantityBtn"
             onClick={() => {
               if (count <= 1) {
                 setCount(1);
@@ -75,8 +75,8 @@ const Product = () => {
               }
             }}
           > - </button>
-          <p>{count}</p>
-          <button onClick={()=>setCount(count+1)}>+</button>
+          <p className="quantityPrint">{count}</p>
+          <button className="quantityBtn btn2" onClick={()=>setCount(count+1)}>+</button>
         </div>
         <Button type="primary" onClick={() => addToCart(product.id)}>
           Add to Cart{" "}

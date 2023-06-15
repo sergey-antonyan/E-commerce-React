@@ -1,10 +1,10 @@
 .cartCont {
-  height: 500px;
-  overflow: auto;
-  
+  min-height: 500px;
+  height: auto;
 }
 
 .prodImage{
+  box-sizing: border-box;
   width: 250px;
 }
 
@@ -15,4 +15,8 @@
 
 .css-dev-only-do-not-override-w8mnev{
 
+}
+
+.countCnt{
+  display: flex;
 }

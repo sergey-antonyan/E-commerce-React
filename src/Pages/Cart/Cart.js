@@ -29,12 +29,33 @@ const Cart = () => {
       .then(() => dispatch(getCart(decoded.id)))
       .then(() => setRemove(!remove));
   }
-  
 
   console.log(data, "CartDAAAAAAATA");
   console.log();
+
+  function incrementCartItem(productId) {
+    const cartItem = data.find((item) => item.productId === productId);
+    if (cartItem) {
+      const newQuantity = cartItem.quantity + 1;
+      dispatch(increment({ userId: decoded.id, productId, quantity: newQuantity }));
+    }
+  }
+  
+  
+
+  function decrementCartItem(productId, quantity) {
+    if (quantity < 1) {
+      dispatch(deleteCartProduct({ productId }));
+    } else {
+      dispatch(decrement({ userId: decoded.id, productId }));
+    }
+  }
+
   return (
     <div className="cartCont">
+      <div>
+        <h3>Total Amount</h3>
+      </div>
       <Row gutter={16}>
         {data?.map((cartItem) => (
           <Col span={8} key={cartItem.id}>
@@ -50,7 +71,26 @@ const Cart = () => {
                 </div>
                 <br />
                 <h3 className="productPrice">{cartItem.product.price} RUB</h3>
-                <h2>{cartItem.quantity}</h2>
+                <div className="countCnt">
+                  <button
+                    className="quantityBtn"
+                    onClick={() =>
+                      decrementCartItem(
+                        cartItem?.productId,
+                        cartItem?.quantity
+                      )
+                    }
+                  >
+                    -
+                  </button>
+                  <h2>{cartItem.quantity}</h2>
+                  <button
+                    className="quantityBtn btn2"
+                    onClick={() => incrementCartItem(cartItem?.productId)}
+                  >
+                    +
+                  </button>
+                </div>
                 <Button
                   onClick={() => deleteCart(decoded.id, cartItem.productId)}
                 >

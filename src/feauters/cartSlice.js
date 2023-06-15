@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const createCart = createAsyncThunk(
   'cart/createCart',
-  async ({ productId, userId }, { getState }) => {
+  async ({ productId, userId, quantity }, { getState }) => {
     const { cart } = getState().cart;
     
     // Check if prod already exists in the cart
@@ -16,7 +16,7 @@ export const createCart = createAsyncThunk(
       body: JSON.stringify({
         productId,
         userId,
-        quantity: 1
+        quantity
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8"
@@ -45,11 +45,7 @@ export const getCart = createAsyncThunk("cart/getCart", async (userId) => {
 });
 
 
-// export const getCart = createAsyncThunk("cart/getCart", async (userId) => {
-//   const res = await fetch(`http://localhost:5000/cart/${userId}`);
-//   const json = await res.json();
-//   return json;
-// });
+
 
 export const deleteCartProduct = createAsyncThunk(
   "cart/deleteCartProducts",
@@ -65,8 +61,8 @@ export const deleteCartProduct = createAsyncThunk(
   }
 );
 
-export const decrement = createAsyncThunk('cart/decrement', async (id) => {
-  const res = await fetch(`http://localhost:5000/cart/decrement/${id}`, {
+export const decrement = createAsyncThunk('cart/decrement', async ( {userId , productId}) => {
+  const res = await fetch(`http://localhost:5000/cart/${userId}/${productId}`, {
     method: "PUT",
     body: JSON.stringify({
       quantity: 1
@@ -79,19 +75,23 @@ export const decrement = createAsyncThunk('cart/decrement', async (id) => {
   return json;
 });
 
-export const increment = createAsyncThunk('cart/increment', async (id) => {
-  const res = await fetch(`http://localhost:5000/cart/increment/${id}`, {
-    method: "PUT",
-    body: JSON.stringify({
-      quantity: 1
-    }),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8"
-    },
-  });
-  const json = await res.json();
-  return json;
-});
+export const increment = createAsyncThunk(
+  'cart/increment',
+  async ({ userId, productId, quantity }) => {
+    const res = await fetch(`http://localhost:5000/cart/${userId}/${productId}`, {
+      method: 'PUT',
+      body: JSON.stringify({
+        quantity: quantity
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+      },
+    });
+    const json = await res.json();
+    return json;
+  }
+);
+
 
 const cartSlice = createSlice({
   name: 'cart',
