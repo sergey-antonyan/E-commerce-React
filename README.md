@@ -5,7 +5,7 @@
 Welcome to the E-commerce Front-end Boilerplate! This project was created to provide you with a solid foundation for building your own E-commerce website. It comes fully equipped with essential features and functionality, allowing you to focus on customizing and expanding your application.
 
 
-##Technologies used
+## Technologies used
 
 * React.js
 * Redux-Toolkit
