@@ -8,6 +8,8 @@
     max-width: 67rem;
   }
 }
+
+
 .sandbox__carousel {
   position: relative;
   background-color: var(--background-code);

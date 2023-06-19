@@ -4,23 +4,27 @@ import { useParams } from "react-router-dom";
 import { fetchProducts, getAllProducts } from "../../feauters/productsSlice";
 import { Link } from "react-router-dom";
 
-
-const Product = () => {
+const ShowAllProducts = () => {
   const data = useSelector(getAllProducts);
   const dispatch = useDispatch();
-  const { categoryId } = useParams();
+  const { id } = useParams();
 
+ 
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
 
-  const products = data.filter((product) => product.Category.id === Number(categoryId));
+  console.log(data , "Find DATTTTTTTTTTTTTTTTA" )
 
+  // Filter the products based on the provided ID
+  const products = data.filter((product) => product.id === Number(id));
+
+ 
   return (
     <div>
       <h1 className="pageTitle">All Products</h1>
       <div className="productCont">
-        {products.map((product) => (
+        {data.map((product) => (
           <div className="productDiv" key={product.id}>
             <Link to={`/products/${product.id}`} className="productLink">
               <img
@@ -39,6 +43,4 @@ const Product = () => {
   );
 };
 
-
-
-export default Product;
+export default ShowAllProducts;

@@ -69,3 +69,20 @@
   color: inherit;
   cursor: pointer;
 }
+
+.homeAll{ 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  height: 200px;
+  padding-top: 4%;
+  }
+
+.homeAll .icc{
+    width: 60px;
+    cursor: pointer;
+  }
+  
+.homeAll p{
+    font-size: 0.8em;
+  }

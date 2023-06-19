@@ -26,6 +26,8 @@ const Footer = () => {
         <h2>Become Our Friend</h2>
         <BsInstagram className="icon-instagram" />
         <BsFacebook className="icon-facebook" />
+        <br/><br/>
+        <p style={{fontSize: "0.8rem"}}>&#xA9; 2023 SA I/e - Bashinjaghyan street, Yerevan</p>
       </div>
       <div className="companyDiv">
         <h2>SA Company</h2>
