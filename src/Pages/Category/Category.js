@@ -19,7 +19,7 @@ const Category = () => {
   
   return (
     <div>
-      <h1>Helllllllllllo</h1>
+      <h1>КАТЕГОРИИ</h1>
       {data.map((category) => (
         <Link key={category.id} to={`/category/${category.id}`}>
           <div>{category.category_name}</div>
