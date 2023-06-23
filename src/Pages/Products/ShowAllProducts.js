@@ -16,13 +16,13 @@ const ShowAllProducts = () => {
 
   console.log(data , "Find DATTTTTTTTTTTTTTTTA" )
 
-  // Filter the products based on the provided ID
+ 
   const products = data.filter((product) => product.id === Number(id));
 
  
   return (
     <div>
-      <h1 className="pageTitle">All Products</h1>
+      <h1 className="pageTitle">Все продукты</h1>
       <div className="productCont">
         {data.map((product) => (
           <div className="productDiv" key={product.id}>

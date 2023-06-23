@@ -2,20 +2,13 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  background-color: antiquewhite;
+  background-color:#f4f4f4;
   padding-left: 40px;
   justify-content: center;
   align-items: center;
 }
 
-@media (max-width: 768px) {
-  .productCont {
-    grid-template-columns: 1fr; 
-    padding-left: 0;
-    justify-content: center;
-    align-items: center;
-  }
-}
+
 
 .pageTitle {
   font-size: 32px;
@@ -85,4 +78,17 @@
   
 .homeAll p{
     font-size: 0.8em;
+  }
+
+  @media (max-width: 768px) {
+    .productCont {
+      grid-template-columns: 1fr; 
+      padding-left: 0;
+      justify-content: center;
+      align-items: center;
+      padding-left: 70px;
+    }
+    .homeAll{
+      grid-template-columns: repeat(2, 1fr) 
+    }
   }

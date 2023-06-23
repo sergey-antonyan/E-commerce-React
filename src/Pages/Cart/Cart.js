@@ -58,7 +58,8 @@ const Cart = () => {
       </div>
       <Row gutter={16}>
         {data?.map((cartItem) => (
-          <Col span={8} key={cartItem.id}>
+          <div>
+          <Col  span={8} key={cartItem.id}>
             {cartItem.product ? (
               <Card title={cartItem.product.product_name} bordered={false}>
                 <img
@@ -103,6 +104,7 @@ const Cart = () => {
               </Card>
             )}
           </Col>
+          </div>
         ))}
       </Row>
     </div>
