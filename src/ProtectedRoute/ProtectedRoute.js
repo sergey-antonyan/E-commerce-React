@@ -6,7 +6,7 @@ const ProtectedRoute = ({children})=>{
     const token =localStorage.getItem('jwt')
     const decodedToken = decodeToken(token);
     console.log(decodedToken)
-    if(!token || decodedToken?.role === 0){
+    if(!token || decodedToken?.role !== 1){
         return <Navigate to='/' />
     }
     return children

@@ -1,7 +1,7 @@
 import React from 'react'
 import './HeaderSlider.css'
 import useEmblaCarousel from 'embla-carousel-react'
-// import Autoplay from 'embla-carousel-autoplay'
+import Autoplay from 'embla-carousel-autoplay'
 import imageByIndex from './imageByIndex'
 
 
@@ -13,8 +13,8 @@ export const HeaderSlider = () => {
   const OPTIONS = { loop: true }
 const SLIDE_COUNT = 3
 const slides = Array.from(Array(SLIDE_COUNT).keys())
-const [emblaRef] = useEmblaCarousel(OPTIONS)
-// const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()])       //Autoplay
+// const [emblaRef] = useEmblaCarousel(OPTIONS)
+const [emblaRef] = useEmblaCarousel({ loop: false }, [Autoplay()])       //Autoplay
 
 return (
   <div className='sandbox'>

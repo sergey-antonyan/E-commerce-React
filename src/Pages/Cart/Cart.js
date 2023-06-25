@@ -95,7 +95,7 @@ const Cart = () => {
                 <Button
                   onClick={() => deleteCart(decoded.id, cartItem.productId)}
                 >
-                  DELETE CART
+                  DELETE
                 </Button>
               </Card>
             ) : (
